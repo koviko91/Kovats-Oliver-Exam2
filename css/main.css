@@ -26,6 +26,7 @@ body {
 .movie,
 .actor {
     width: 30%;
+    height: 30vh;
     margin: 1%;
     display: inline-block;
     background-color: #40c4ff;

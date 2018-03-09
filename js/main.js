@@ -183,7 +183,7 @@ function createSearch(movies) {
 }
 
 function searchFilm(movies) {
-    console.log(movies);
+
     let text = document.querySelector('input[type="text"]').value.toLocaleLowerCase();
     let type = document.querySelector('select').value;
     if (type == "title") {
@@ -197,7 +197,9 @@ function searchFilm(movies) {
     if (type == "director") {
         movies = movies.filter(function (item) {
             for (let i in item.directors) {
-                if (item.directors[i].search(text) > -1) {
+                let dir = item.directors[i].toLocaleLowerCase();
+                if (dir.search(text) > -1) {
+                    console.log(dir);
                     return true;
                 }
             }
@@ -207,11 +209,8 @@ function searchFilm(movies) {
     if (type == "cast") {
         movies = movies.filter(function (item) {
             for (let i in item.cast) {
-                let name = item.cast[i].name;
-
+                let name = item.cast[i].name.toLocaleLowerCase();
                 if (name.indexOf(text) > -1) {
-
-
                     return true;
                 }
             }
